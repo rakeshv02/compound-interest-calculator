@@ -1,42 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compound Interest Calculator – See How Your Money Grows | Tabutility</title>
+  <meta name="description" content="Free compound interest calculator. See how your savings grow with daily, monthly or annual compounding. Add regular contributions and view year-by-year growth." />
+  <meta name="keywords" content="compound interest calculator, savings calculator, investment growth calculator, compounding calculator, how much will my money grow" />
+  <link rel="canonical" href="https://compound-interest-calculator.tabutility.com/" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-78VZWJ5B1W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-78VZWJ5B1W');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7039091592734005" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>*{margin:0;padding:0;box-sizing:border-box;}body{background:#f0f4ff;}.site-nav{background:#1a1a2e;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;}.site-nav a{color:#a5b4fc;text-decoration:none;font-size:14px;font-family:'Segoe UI',Arial,sans-serif;}.nav-brand{color:#fff;font-weight:700;font-size:16px;font-family:'Segoe UI',Arial,sans-serif;}#ad-top,#ad-bottom{text-align:center;padding:10px;background:#fff;}</style>
+</head>
+<body>
+  <nav class="site-nav"><span class="nav-brand">⚡ Tabutility</span><a href="https://tabutility.com">← All Tools</a></nav>
+  <div id="ad-top"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7039091592734005" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+  <div id="root"></div>
+  <div id="ad-bottom"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7039091592734005" data-ad-slot="auto" data-ad-format="rectangle" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+  <script type="text/babel">
+    //<![CDATA[
+    const { useState } = React;
 
-    <!-- ✏️ UPDATE THESE FOR EVERY NEW TOOL -->
-    <title>TOOL NAME — TOOL TAGLINE | Tabutility</title>
-    <meta name="description" content="TOOL DESCRIPTION. No sign-up, runs in your browser." />
-    <meta name="keywords" content="KEYWORD 1, KEYWORD 2, KEYWORD 3, free TOOL NAME" />
-    <link rel="canonical" href="https://SUBDOMAIN.tabutility.com/" />
-    <meta property="og:url" content="https://SUBDOMAIN.tabutility.com/" />
-    <meta property="og:title" content="TOOL NAME — TOOL TAGLINE" />
-    <meta property="og:description" content="TOOL DESCRIPTION. Free, no sign-up." />
-    <meta name="twitter:title" content="TOOL NAME — TOOL TAGLINE" />
-    <meta name="twitter:description" content="TOOL DESCRIPTION. Free, no sign-up." />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>EMOJI</text></svg>" />
-    <!-- ✏️ END OF SECTION TO UPDATE -->
+    const fmt = (n,sym) => sym + Math.round(n).toLocaleString();
 
-    <!-- DO NOT CHANGE ANYTHING BELOW THIS LINE -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Tabutility" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="robots" content="index, follow" />
+    function CompoundInterestCalculator() {
+      const [currency, setCurrency] = useState("gbp");
+      const [principal, setPrincipal] = useState("10000");
+      const [rate, setRate] = useState("7");
+      const [years, setYears] = useState("20");
+      const [compoundFreq, setCompoundFreq] = useState("12");
+      const [monthlyContrib, setMonthlyContrib] = useState("200");
+      const [result, setResult] = useState(null);
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7039091592734005" crossorigin="anonymous"></script>
+      const sym = currency === "gbp" ? "£" : "$";
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-78VZWJ5B1W"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-78VZWJ5B1W');
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+      const calculate = () => {
+        const p = parseFloat(principal)||0;
+        const r = parseFloat(rate)||0;
+        const y = parseFloat(years)||0;
+        const n = parseFloat(compoundFreq)||12;
+        const mc = parseFloat(monthlyContrib)||0;
+        const periodicRate = r / 100 / n;
+        const periods = y * n;
+        const contribPerPeriod = mc * 12 / n;
+        const fvLump = p * Math.pow(1 + periodicRate, periods);
+        const fvContribs = periodicRate > 0 ? contribPerPeriod * (Math.pow(1 + periodicRate, periods) - 1) / periodicRate : contribPerPeriod * periods;
+        const finalBalance = fvLump + fvContribs;
+        const totalContributions = p + mc * 12 * y;
+        const totalInterest = finalBalance - totalContributions;
+        const yearly = [];
+        for (let yr = 1; yr <= Math.min(y, 30); yr++) {
+          const perds = yr * n;
+          const fvL = p * Math.pow(1 + periodicRate, perds);
+          const fvC = periodicRate > 0 ? contribPerPeriod * (Math.pow(1 + periodicRate, perds) - 1) / periodicRate : contribPerPeriod * perds;
+          const bal = fvL + fvC;
+          const contrib = p + mc * 12 * yr;
+          yearly.push({ year: yr, balance: bal, contributions: contrib, interest: bal - contrib });
+        }
+        setResult({ finalBalance, totalContributions, totalInterest, yearly });
+      };
+
+      const inputStyle = { width:"100%",padding:"12px",border:"2px solid #e0e7ff",borderRadius:10,fontSize:16,boxSizing:"border-box",outline:"none" };
+      const labelStyle = { display:"block",fontWeight:600,marginBottom:6,color:"#333" };
+
+      return (
+        <div style={{ fontFamily:"'Segoe UI',Arial,sans-serif",background:"#f0f4ff",minHeight:"100vh",padding:"20px" }}>
+          <div style={{ maxWidth:820,margin:"0 auto" }}>
+            <div style={{ textAlign:"center",marginBottom:32 }}>
+              <div style={{ fontSize:48,marginBottom:8 }}>📈</div>
+              <h1 style={{ margin:0,fontSize:32,fontWeight:800,color:"#1a1a2e" }}>Compound Interest Calculator</h1>
+              <p style={{ margin:"8px 0 0",color:"#555",fontSize:16 }}>See how your money grows with the power of compounding</p>
+            </div>
+            <div style={{ background:"#fff",borderRadius:16,padding:28,boxShadow:"0 4px 24px rgba(0,0,0,0.08)",marginBottom:24 }}>
+              <div style={{ display:"flex",gap:8,marginBottom:20 }}>
+                {[["gbp","£ GBP"],["usd","$ USD"]].map(([v,l]) => (
+                  <button key={v} onClick={()=>setCurrency(v)} style={{ padding:"8px 20px",borderRadius:8,border:`2px solid ${currency===v?"#3b5bdb":"#e0e7ff"}`,background:currency===v?"#3b5bdb":"#fff",color:currency===v?"#fff":"#333",fontWeight:600,cursor:"pointer" }}>{l}</button>
+                ))}
+              </div>
+              <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(200px,1fr))",gap:20 }}>
+                {[
+                  { label:`Initial Deposit (${sym})`, value:principal, set:setPrincipal, prefix:sym },
+                  { label:"Annual Interest Rate (%)", value:rate, set:setRate, suffix:"%" },
+                  { label:"Time Period (Years)", value:years, set:setYears, suffix:"yrs" },
+                  { label:`Monthly Contribution (${sym})`, value:monthlyContrib, set:setMonthlyContrib, prefix:sym },
+                ].map(({ label,value,set,prefix,suffix }) => (
+                  <div key={label}>
+                    <label style={labelStyle}>{label}</label>
+                    <div style={{ position:"relative" }}>
+                      {prefix && <span style={{ position:"absolute",left:12,top:"50%",transform:"translateY(-50%)",color:"#666",fontWeight:600 }}>{prefix}</span>}
+                      <input type="number" value={value} onChange={e=>set(e.target.value)} style={{...inputStyle,paddingLeft:prefix?28:12,paddingRight:suffix?40:12}} />
+                      {suffix && <span style={{ position:"absolute",right:12,top:"50%",transform:"translateY(-50%)",color:"#666" }}>{suffix}</span>}
+                    </div>
+                  </div>
+                ))}
+                <div>
+                  <label style={labelStyle}>Compound Frequency</label>
+                  <select value={compoundFreq} onChange={e=>setCompoundFreq(e.target.value)} style={inputStyle}>
+                    <option value="365">Daily</option><option value="12">Monthly</option><option value="4">Quarterly</option><option value="2">Semi-annually</option><option value="1">Annually</option>
+                  </select>
+                </div>
+              </div>
+              <button onClick={calculate} style={{ width:"100%",marginTop:24,padding:"16px",background:"linear-gradient(135deg, #3b5bdb, #1971c2)",color:"#fff",border:"none",borderRadius:12,fontSize:18,fontWeight:700,cursor:"pointer" }}>Calculate Growth</button>
+            </div>
+            {result && <>
+              <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(170px,1fr))",gap:16,marginBottom:24 }}>
+                {[
+                  { label:"Final Balance", value:fmt(result.finalBalance,sym), color:"#3b5bdb", bg:"#eef2ff" },
+                  { label:"Total Deposited", value:fmt(result.totalContributions,sym), color:"#0369a1", bg:"#e0f2fe" },
+                  { label:"Interest Earned", value:fmt(result.totalInterest,sym), color:"#2f9e44", bg:"#ebfbee" },
+                  { label:"Interest as % of Deposits", value:(result.totalContributions>0?(result.totalInterest/result.totalContributions*100).toFixed(1):0)+"%", color:"#e67700", bg:"#fff9db" },
+                ].map((item,i) => (
+                  <div key={i} style={{ background:item.bg,borderRadius:14,padding:18,textAlign:"center",border:`2px solid ${item.color}22` }}>
+                    <div style={{ fontSize:22,fontWeight:800,color:item.color }}>{item.value}</div>
+                    <div style={{ fontSize:12,color:"#555",marginTop:4,fontWeight:500 }}>{item.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ background:"#fff",borderRadius:16,padding:24,boxShadow:"0 2px 12px rgba(0,0,0,0.06)",marginBottom:24 }}>
+                <h3 style={{ margin:"0 0 14px",fontSize:15,fontWeight:700 }}>Contributions vs Interest Earned</h3>
+                <div style={{ display:"flex",height:32,borderRadius:8,overflow:"hidden",marginBottom:10 }}>
+                  <div style={{ width:`${Math.min(100,result.totalContributions/result.finalBalance*100)}%`,background:"#3b5bdb" }} />
+                  <div style={{ flex:1,background:"#2f9e44" }} />
+                </div>
+                <div style={{ display:"flex",gap:20,fontSize:13 }}>
+                  <div><span style={{ display:"inline-block",width:12,height:12,background:"#3b5bdb",borderRadius:2,marginRight:6 }} />Deposited: {fmt(result.totalContributions,sym)}</div>
+                  <div><span style={{ display:"inline-block",width:12,height:12,background:"#2f9e44",borderRadius:2,marginRight:6 }} />Interest: {fmt(result.totalInterest,sym)}</div>
+                </div>
+              </div>
+              <div style={{ background:"#fff",borderRadius:16,padding:24,boxShadow:"0 2px 12px rgba(0,0,0,0.06)",marginBottom:24 }}>
+                <h3 style={{ margin:"0 0 16px",fontSize:16,fontWeight:700 }}>📊 Year-by-Year Growth</h3>
+                <div style={{ overflowX:"auto" }}>
+                  <table style={{ width:"100%",borderCollapse:"collapse",fontSize:13 }}>
+                    <thead><tr style={{ background:"#eef2ff" }}>{["Year","Total Deposited","Interest Earned","Balance"].map(h=><th key={h} style={{ padding:"9px 12px",textAlign:"left",fontWeight:700 }}>{h}</th>)}</tr></thead>
+                    <tbody>{result.yearly.map((row,i)=>(
+                      <tr key={i} style={{ borderBottom:"1px solid #f1f3f5",background:i%2===0?"#fff":"#fafafa" }}>
+                        <td style={{ padding:"8px 12px",fontWeight:600 }}>{row.year}</td>
+                        <td style={{ padding:"8px 12px",color:"#0369a1" }}>{fmt(row.contributions,sym)}</td>
+                        <td style={{ padding:"8px 12px",color:"#2f9e44" }}>{fmt(row.interest,sym)}</td>
+                        <td style={{ padding:"8px 12px",fontWeight:700,color:"#3b5bdb" }}>{fmt(row.balance,sym)}</td>
+                      </tr>
+                    ))}</tbody>
+                  </table>
+                </div>
+              </div>
+            </>}
+          </div>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<CompoundInterestCalculator />);
+    //]]>
+  </script>
+</body>
 </html>
