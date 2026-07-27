@@ -7,13 +7,12 @@
   <meta name="description" content="Free compound interest calculator. See how your savings grow with daily, monthly or annual compounding. Add regular contributions and view year-by-year growth." />
   <meta name="keywords" content="compound interest calculator, savings calculator, investment growth calculator, compounding calculator, how much will my money grow" />
   <link rel="canonical" href="https://compound-interest-calculator.tabutility.com/" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-78VZWJ5B1W"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-78VZWJ5B1W');</script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7039091592734005" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <style>*{margin:0;padding:0;box-sizing:border-box;}body{background:#f0f4ff;}.site-nav{background:#1a1a2e;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;}.site-nav a{color:#a5b4fc;text-decoration:none;font-size:14px;font-family:'Segoe UI',Arial,sans-serif;}.nav-brand{color:#fff;font-weight:700;font-size:16px;font-family:'Segoe UI',Arial,sans-serif;}#ad-top,#ad-bottom{text-align:center;padding:4px;background:#fff;}</style>
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <meta name="robots" content="index, follow" />
   <meta property="og:title" content="Compound Interest Calculator – See How Your Money Grows | Tabutility"/>
   <meta property="og:description" content="Free compound interest calculator. See how your savings grow with daily, monthly or annual compounding. Add regular contributions and view year-by-year growth."/>
   <meta property="og:url" content="https://compound-interest-calculator.tabutility.com/"/>
@@ -22,207 +21,252 @@
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:title" content="Compound Interest Calculator – See How Your Money Grows | Tabutility"/>
   <meta name="twitter:description" content="Free compound interest calculator. See how your savings grow with daily, monthly or annual compounding. Add regular contributions and view year-by-year growth."/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Compound Interest Calculator","description":"See how your money grows over time with compound interest — daily, monthly or annual compounding.","url":"https://compound-interest-calculator.tabutility.com/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"Tabutility","url":"https://tabutility.com"}}</script>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Compound Interest Calculator","description":"See how your money grows over time with compound interest — daily, monthly or annual compounding.","url":"https://compound-interest-calculator.tabutility.com/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"Tabutility","url":"https://tabutility.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tabutility","item":"https://tabutility.com"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://tabutility.com/#calculators"},{"@type":"ListItem","position":3,"name":"Compound Interest Calculator","item":"https://compound-interest-calculator.tabutility.com/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is the Compound Interest Calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes — completely free, no sign-up or download needed. Just enter your numbers and get instant results."}},{"@type":"Question","name":"How accurate is the Compound Interest Calculator?","acceptedAnswer":{"@type":"Answer","text":"Results are based on standard financial formulas and are accurate for planning purposes. For personalised financial advice, consult a qualified professional."}},{"@type":"Question","name":"Can I use the Compound Interest Calculator on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes — it works on any device including desktop, tablet and mobile."}},{"@type":"Question","name":"Do I need to create an account?","acceptedAnswer":{"@type":"Answer","text":"No account needed. The Compound Interest Calculator works instantly in your browser."}}]}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-78VZWJ5B1W"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-78VZWJ5B1W');</script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7039091592734005" crossorigin="anonymous"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f172a;color:#f1f5f9;min-height:100vh}
+    nav{background:#1e293b;border-bottom:1px solid #334155;padding:14px 24px;display:flex;align-items:center;gap:16px}
+    nav a{color:#94a3b8;text-decoration:none;font-size:14px}
+    nav a:hover{color:#f1f5f9}
+    nav .brand{color:#38bdf8;font-weight:700;font-size:18px}
+    .ad-banner{background:#1e293b;border-bottom:1px solid #334155;padding:4px;text-align:center}
+    #app{max-width:820px;margin:8px auto;padding:0 16px 40px}
+    h1{font-size:28px;font-weight:800;color:#f1f5f9;margin:24px 0 6px;text-align:center}
+    .subtitle{color:#94a3b8;font-size:15px;text-align:center;margin-bottom:24px}
+    .card{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:20px 24px;margin-bottom:16px}
+    .currency-btns{display:flex;gap:8px;margin-bottom:20px}
+    .currency-btn{padding:8px 20px;border-radius:8px;border:2px solid #334155;background:#0f172a;color:#94a3b8;font-weight:600;cursor:pointer;font-size:14px;transition:all .15s}
+    .currency-btn.active{border-color:#38bdf8;background:#1e3a5f;color:#38bdf8}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+    label{display:block;font-size:13px;font-weight:600;color:#94a3b8;margin-bottom:6px}
+    .input-wrap{position:relative}
+    .input-wrap .prefix,.input-wrap .suffix{position:absolute;top:50%;transform:translateY(-50%);color:#64748b;font-weight:600;font-size:14px;pointer-events:none}
+    .input-wrap .prefix{left:12px}
+    .input-wrap .suffix{right:12px}
+    input,select{width:100%;padding:10px 12px;background:#0f172a;border:2px solid #334155;border-radius:10px;color:#f1f5f9;font-size:15px;outline:none;transition:border-color .15s}
+    input:focus,select:focus{border-color:#38bdf8}
+    select option{background:#1e293b}
+    .has-prefix input{padding-left:28px}
+    .has-suffix input{padding-right:36px}
+    .calc-btn{width:100%;margin-top:20px;padding:14px;background:#38bdf8;color:#0f172a;border:none;border-radius:12px;font-size:17px;font-weight:700;cursor:pointer;transition:background .15s}
+    .calc-btn:hover{background:#7dd3fc}
+    .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:16px}
+    .result-card{border-radius:14px;padding:18px;text-align:center;border:2px solid transparent}
+    .result-card .val{font-size:22px;font-weight:800}
+    .result-card .lbl{font-size:12px;color:#94a3b8;margin-top:4px;font-weight:500}
+    .bar-wrap{height:32px;border-radius:8px;overflow:hidden;display:flex;margin-bottom:10px}
+    .bar-legend{display:flex;gap:20px;font-size:13px;color:#94a3b8}
+    .dot{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th{padding:9px 12px;text-align:left;font-weight:700;background:#0f172a;color:#64748b;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+    td{padding:8px 12px;border-bottom:1px solid #1e293b}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:#1e293b}
+    #results{display:none}
+    .section-title{font-size:15px;font-weight:700;color:#f1f5f9;margin-bottom:14px}
+  </style>
 </head>
 <body>
-  <nav class="site-nav"><span class="nav-brand">⚡ Tabutility</span><a href="https://tabutility.com">← All Tools</a></nav>
-  <div id="ad-top"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7039091592734005" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-  <div id="root"></div>
-  <div id="ad-bottom"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7039091592734005" data-ad-slot="auto" data-ad-format="rectangle" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-  <script type="text/babel">
-    //<![CDATA[
-    const { useState } = React;
+<nav>
+  <a href="https://tabutility.com" class="brand">⚡ Tabutility</a>
+  <a href="https://tabutility.com">← All Tools</a>
+</nav>
+<div class="ad-banner">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7039091592734005" data-ad-slot="auto" data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+<div id="app">
+  <h1>📈 Compound Interest Calculator</h1>
+  <p class="subtitle">See how your money grows with the power of compounding</p>
 
-    const fmt = (n,sym) => sym + Math.round(n).toLocaleString();
-
-    function CompoundInterestCalculator() {
-      const [currency, setCurrency] = useState("gbp");
-      const [principal, setPrincipal] = useState("10000");
-      const [rate, setRate] = useState("7");
-      const [years, setYears] = useState("20");
-      const [compoundFreq, setCompoundFreq] = useState("12");
-      const [monthlyContrib, setMonthlyContrib] = useState("200");
-      const [result, setResult] = useState(null);
-
-      const sym = currency === "gbp" ? "£" : "$";
-
-      const calculate = () => {
-        const p = parseFloat(principal)||0;
-        const r = parseFloat(rate)||0;
-        const y = parseFloat(years)||0;
-        const n = parseFloat(compoundFreq)||12;
-        const mc = parseFloat(monthlyContrib)||0;
-        const periodicRate = r / 100 / n;
-        const periods = y * n;
-        const contribPerPeriod = mc * 12 / n;
-        const fvLump = p * Math.pow(1 + periodicRate, periods);
-        const fvContribs = periodicRate > 0 ? contribPerPeriod * (Math.pow(1 + periodicRate, periods) - 1) / periodicRate : contribPerPeriod * periods;
-        const finalBalance = fvLump + fvContribs;
-        const totalContributions = p + mc * 12 * y;
-        const totalInterest = finalBalance - totalContributions;
-        const yearly = [];
-        for (let yr = 1; yr <= Math.min(y, 30); yr++) {
-          const perds = yr * n;
-          const fvL = p * Math.pow(1 + periodicRate, perds);
-          const fvC = periodicRate > 0 ? contribPerPeriod * (Math.pow(1 + periodicRate, perds) - 1) / periodicRate : contribPerPeriod * perds;
-          const bal = fvL + fvC;
-          const contrib = p + mc * 12 * yr;
-          yearly.push({ year: yr, balance: bal, contributions: contrib, interest: bal - contrib });
-        }
-        setResult({ finalBalance, totalContributions, totalInterest, yearly });
-      };
-
-      const inputStyle = { width:"100%",padding:"4px",border:"2px solid #e0e7ff",borderRadius:10,fontSize:16,boxSizing:"border-box",outline:"none" };
-      const labelStyle = { display:"block",fontWeight:600,marginBottom:6,color:"#333" };
-
-      return (
-        <div style={{ fontFamily:"'Segoe UI',Arial,sans-serif",background:"#f0f4ff",minHeight:"100vh",padding:"20px" }}>
-          <div style={{ maxWidth:820,margin:"0 auto" }}>
-            <div style={{ textAlign:"center",marginBottom:32 }}>
-              <div style={{ fontSize:48,marginBottom:8 }}>📈</div>
-              <h1 style={{ margin:0,fontSize:32,fontWeight:800,color:"#1a1a2e" }}>Compound Interest Calculator</h1>
-              <p style={{ margin:"8px 0 0",color:"#555",fontSize:16 }}>See how your money grows with the power of compounding</p>
-            </div>
-            <div style={{ background:"#fff",borderRadius:16,padding:28,boxShadow:"0 4px 24px rgba(0,0,0,0.08)",marginBottom:24 }}>
-              <div style={{ display:"flex",gap:8,marginBottom:20 }}>
-                {[["gbp","£ GBP"],["usd","$ USD"]].map(([v,l]) => (
-                  <button key={v} onClick={()=>setCurrency(v)} style={{ padding:"8px 20px",borderRadius:8,border:`2px solid ${currency===v?"#3b5bdb":"#e0e7ff"}`,background:currency===v?"#3b5bdb":"#fff",color:currency===v?"#fff":"#333",fontWeight:600,cursor:"pointer" }}>{l}</button>
-                ))}
-              </div>
-              <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(200px,1fr))",gap:20 }}>
-                {[
-                  { label:`Initial Deposit (${sym})`, value:principal, set:setPrincipal, prefix:sym },
-                  { label:"Annual Interest Rate (%)", value:rate, set:setRate, suffix:"%" },
-                  { label:"Time Period (Years)", value:years, set:setYears, suffix:"yrs" },
-                  { label:`Monthly Contribution (${sym})`, value:monthlyContrib, set:setMonthlyContrib, prefix:sym },
-                ].map(({ label,value,set,prefix,suffix }) => (
-                  <div key={label}>
-                    <label style={labelStyle}>{label}</label>
-                    <div style={{ position:"relative" }}>
-                      {prefix && <span style={{ position:"absolute",left:12,top:"50%",transform:"translateY(-50%)",color:"#666",fontWeight:600 }}>{prefix}</span>}
-                      <input type="number" value={value} onChange={e=>set(e.target.value)} style={{...inputStyle,paddingLeft:prefix?28:12,paddingRight:suffix?40:12}} />
-                      {suffix && <span style={{ position:"absolute",right:12,top:"50%",transform:"translateY(-50%)",color:"#666" }}>{suffix}</span>}
-                    </div>
-                  </div>
-                ))}
-                <div>
-                  <label style={labelStyle}>Compound Frequency</label>
-                  <select value={compoundFreq} onChange={e=>setCompoundFreq(e.target.value)} style={inputStyle}>
-                    <option value="365">Daily</option><option value="12">Monthly</option><option value="4">Quarterly</option><option value="2">Semi-annually</option><option value="1">Annually</option>
-                  </select>
-                </div>
-              </div>
-              <button onClick={calculate} style={{ width:"100%",marginTop:24,padding:"4px",background:"linear-gradient(135deg, #3b5bdb, #1971c2)",color:"#fff",border:"none",borderRadius:12,fontSize:18,fontWeight:700,cursor:"pointer" }}>Calculate Growth</button>
-            </div>
-            {result && <>
-              <div style={{ display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(170px,1fr))",gap:16,marginBottom:24 }}>
-                {[
-                  { label:"Final Balance", value:fmt(result.finalBalance,sym), color:"#3b5bdb", bg:"#eef2ff" },
-                  { label:"Total Deposited", value:fmt(result.totalContributions,sym), color:"#0369a1", bg:"#e0f2fe" },
-                  { label:"Interest Earned", value:fmt(result.totalInterest,sym), color:"#2f9e44", bg:"#ebfbee" },
-                  { label:"Interest as % of Deposits", value:(result.totalContributions>0?(result.totalInterest/result.totalContributions*100).toFixed(1):0)+"%", color:"#e67700", bg:"#fff9db" },
-                ].map((item,i) => (
-                  <div key={i} style={{ background:item.bg,borderRadius:14,padding:18,textAlign:"center",border:`2px solid ${item.color}22` }}>
-                    <div style={{ fontSize:22,fontWeight:800,color:item.color }}>{item.value}</div>
-                    <div style={{ fontSize:12,color:"#555",marginTop:4,fontWeight:500 }}>{item.label}</div>
-                  </div>
-                ))}
-              </div>
-              <div style={{ background:"#fff",borderRadius:16,padding:24,boxShadow:"0 2px 12px rgba(0,0,0,0.06)",marginBottom:24 }}>
-                <h3 style={{ margin:"0 0 14px",fontSize:15,fontWeight:700 }}>Contributions vs Interest Earned</h3>
-                <div style={{ display:"flex",height:32,borderRadius:8,overflow:"hidden",marginBottom:10 }}>
-                  <div style={{ width:`${Math.min(100,result.totalContributions/result.finalBalance*100)}%`,background:"#3b5bdb" }} />
-                  <div style={{ flex:1,background:"#2f9e44" }} />
-                </div>
-                <div style={{ display:"flex",gap:20,fontSize:13 }}>
-                  <div><span style={{ display:"inline-block",width:12,height:12,background:"#3b5bdb",borderRadius:2,marginRight:6 }} />Deposited: {fmt(result.totalContributions,sym)}</div>
-                  <div><span style={{ display:"inline-block",width:12,height:12,background:"#2f9e44",borderRadius:2,marginRight:6 }} />Interest: {fmt(result.totalInterest,sym)}</div>
-                </div>
-              </div>
-              <div style={{ background:"#fff",borderRadius:16,padding:24,boxShadow:"0 2px 12px rgba(0,0,0,0.06)",marginBottom:24 }}>
-                <h3 style={{ margin:"0 0 16px",fontSize:16,fontWeight:700 }}>📊 Year-by-Year Growth</h3>
-                <div style={{ overflowX:"auto" }}>
-                  <table style={{ width:"100%",borderCollapse:"collapse",fontSize:13 }}>
-                    <thead><tr style={{ background:"#eef2ff" }}>{["Year","Total Deposited","Interest Earned","Balance"].map(h=><th key={h} style={{ padding:"9px 12px",textAlign:"left",fontWeight:700 }}>{h}</th>)}</tr></thead>
-                    <tbody>{result.yearly.map((row,i)=>(
-                      <tr key={i} style={{ borderBottom:"1px solid #f1f3f5",background:i%2===0?"#fff":"#fafafa" }}>
-                        <td style={{ padding:"8px 12px",fontWeight:600 }}>{row.year}</td>
-                        <td style={{ padding:"8px 12px",color:"#0369a1" }}>{fmt(row.contributions,sym)}</td>
-                        <td style={{ padding:"8px 12px",color:"#2f9e44" }}>{fmt(row.interest,sym)}</td>
-                        <td style={{ padding:"8px 12px",fontWeight:700,color:"#3b5bdb" }}>{fmt(row.balance,sym)}</td>
-                      </tr>
-                    ))}</tbody>
-                  </table>
-                </div>
-              </div>
-            </>}
-          </div>
+  <div class="card">
+    <div class="currency-btns">
+      <button class="currency-btn active" data-cur="gbp" onclick="setCurrency('gbp')">£ GBP</button>
+      <button class="currency-btn" data-cur="usd" onclick="setCurrency('usd')">$ USD</button>
+    </div>
+    <div class="grid">
+      <div>
+        <label id="label-principal">Initial Deposit (£)</label>
+        <div class="input-wrap has-prefix">
+          <span class="prefix" id="prefix-sym">£</span>
+          <input type="number" id="principal" value="10000" min="0" />
         </div>
-      );
-    }
+      </div>
+      <div>
+        <label>Annual Interest Rate (%)</label>
+        <div class="input-wrap has-suffix">
+          <span class="suffix">%</span>
+          <input type="number" id="rate" value="7" min="0" max="100" step="0.1" />
+        </div>
+      </div>
+      <div>
+        <label>Time Period (Years)</label>
+        <div class="input-wrap has-suffix">
+          <span class="suffix">yrs</span>
+          <input type="number" id="years" value="20" min="1" max="100" />
+        </div>
+      </div>
+      <div>
+        <label id="label-contrib">Monthly Contribution (£)</label>
+        <div class="input-wrap has-prefix">
+          <span class="prefix" id="prefix-sym2">£</span>
+          <input type="number" id="monthlyContrib" value="200" min="0" />
+        </div>
+      </div>
+      <div>
+        <label>Compound Frequency</label>
+        <div class="input-wrap">
+          <select id="compoundFreq">
+            <option value="365">Daily</option>
+            <option value="12" selected>Monthly</option>
+            <option value="4">Quarterly</option>
+            <option value="2">Semi-annually</option>
+            <option value="1">Annually</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Calculate Growth</button>
+  </div>
 
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<CompoundInterestCalculator />);
-    //]]>
-  </script>
+  <div id="results">
+    <div class="results-grid" id="summary-cards"></div>
 
-<div style="max-width:860px;margin-left:auto;margin-right:auto;margin-top:24px;margin-bottom:8px;padding:0 16px;font-family:'Segoe UI',Arial,sans-serif">
-  <div style="background:#f0f4ff;border:1px solid #e0e7ff;border-radius:14px;padding:20px 24px">
-    <h2 style="font-size:15px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;margin-top:0">Related Tools</h2>
+    <div class="card">
+      <div class="section-title">Contributions vs Interest Earned</div>
+      <div class="bar-wrap" id="bar"></div>
+      <div class="bar-legend" id="bar-legend"></div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">📊 Year-by-Year Growth</div>
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Year</th><th>Total Deposited</th><th>Interest Earned</th><th>Balance</th></tr></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ad-banner" style="border-top:1px solid #334155;border-bottom:none;margin-top:16px">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7039091592734005" data-ad-slot="auto" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<div style="max-width:860px;margin:8px auto 0;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+  <div style="background:#1e293b;border:1px solid #334155;border-radius:14px;padding:20px 24px;margin-bottom:16px">
+    <h2 style="font-size:15px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px">Related Tools</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">
-    <a href="https://percentage-calculator.tabutility.com/" style="display:block;background:#fff;border:1px solid #e0e7ff;border-radius:10px;padding:12px 16px;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
-      <div style="font-size:13px;font-weight:600;color:#1a1a2e">Percentage Calculator</div>
-      <div style="font-size:11px;color:#6b7280;margin-top:2px">Calculators</div>
-    </a>
-    <a href="https://bmi-calculator.tabutility.com/" style="display:block;background:#fff;border:1px solid #e0e7ff;border-radius:10px;padding:12px 16px;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
-      <div style="font-size:13px;font-weight:600;color:#1a1a2e">BMI Calculator</div>
-      <div style="font-size:11px;color:#6b7280;margin-top:2px">Calculators</div>
-    </a>
-    <a href="https://age-calculator.tabutility.com/" style="display:block;background:#fff;border:1px solid #e0e7ff;border-radius:10px;padding:12px 16px;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
-      <div style="font-size:13px;font-weight:600;color:#1a1a2e">Age Calculator</div>
-      <div style="font-size:11px;color:#6b7280;margin-top:2px">Calculators</div>
-    </a>
-    <a href="https://tip-calculator.tabutility.com/" style="display:block;background:#fff;border:1px solid #e0e7ff;border-radius:10px;padding:12px 16px;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:box-shadow .15s" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
-      <div style="font-size:13px;font-weight:600;color:#1a1a2e">Tip & Bill Splitter</div>
-      <div style="font-size:11px;color:#6b7280;margin-top:2px">Calculators</div>
-    </a>
+      <a href="https://percentage-calculator.tabutility.com/" style="display:block;background:#0f172a;border:1px solid #334155;border-radius:10px;padding:12px 16px;text-decoration:none;color:inherit"><div style="font-size:13px;font-weight:600;color:#f1f5f9">Percentage Calculator</div><div style="font-size:11px;color:#64748b;margin-top:2px">Calculators</div></a>
+      <a href="https://bmi-calculator.tabutility.com/" style="display:block;background:#0f172a;border:1px solid #334155;border-radius:10px;padding:12px 16px;text-decoration:none;color:inherit"><div style="font-size:13px;font-weight:600;color:#f1f5f9">BMI Calculator</div><div style="font-size:11px;color:#64748b;margin-top:2px">Calculators</div></a>
+      <a href="https://mortgage-calculator.tabutility.com/" style="display:block;background:#0f172a;border:1px solid #334155;border-radius:10px;padding:12px 16px;text-decoration:none;color:inherit"><div style="font-size:13px;font-weight:600;color:#f1f5f9">Mortgage Calculator</div><div style="font-size:11px;color:#64748b;margin-top:2px">Calculators</div></a>
+      <a href="https://loan-calculator.tabutility.com/" style="display:block;background:#0f172a;border:1px solid #334155;border-radius:10px;padding:12px 16px;text-decoration:none;color:inherit"><div style="font-size:13px;font-weight:600;color:#f1f5f9">Loan Calculator</div><div style="font-size:11px;color:#64748b;margin-top:2px">Calculators</div></a>
     </div>
   </div>
 </div>
 
-<div style="max-width:860px;margin-left:auto;margin-right:auto;margin-top:8px;margin-bottom:24px;padding:0 16px;font-family:'Segoe UI',Arial,sans-serif">
-  <div style="background:#fff;border:1px solid #e0e7ff;border-radius:14px;padding:20px 24px;box-shadow:0 2px 8px rgba(0,0,0,0.06)">
-    <h2 style="font-size:15px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;margin-top:0">Frequently Asked Questions</h2>
-    <div style="border-bottom:1px solid #e0e7ff;padding:14px 0">
-      <div style="font-size:14px;font-weight:600;color:#1a1a2e;margin-bottom:6px">Is the Compound Interest Calculator free?</div>
-      <div style="font-size:13px;color:#555;line-height:1.5">Yes — completely free, no sign-up or download needed. Just enter your numbers and get instant results.</div>
-    </div>
-    <div style="border-bottom:1px solid #e0e7ff;padding:14px 0">
-      <div style="font-size:14px;font-weight:600;color:#1a1a2e;margin-bottom:6px">How accurate is the Compound Interest Calculator?</div>
-      <div style="font-size:13px;color:#555;line-height:1.5">Results are based on standard financial formulas and are accurate for planning purposes. For personalised financial advice, consult a qualified professional.</div>
-    </div>
-    <div style="border-bottom:1px solid #e0e7ff;padding:14px 0">
-      <div style="font-size:14px;font-weight:600;color:#1a1a2e;margin-bottom:6px">Can I use the Compound Interest Calculator on my phone?</div>
-      <div style="font-size:13px;color:#555;line-height:1.5">Yes — it works on any device including desktop, tablet and mobile.</div>
-    </div>
-    <div style="border-bottom:1px solid #e0e7ff;padding:14px 0">
-      <div style="font-size:14px;font-weight:600;color:#1a1a2e;margin-bottom:6px">Do I need to create an account?</div>
-      <div style="font-size:13px;color:#555;line-height:1.5">No account needed. The Compound Interest Calculator works instantly in your browser.</div>
-    </div>
+<div style="max-width:860px;margin:8px auto 24px;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+  <div style="background:#1e293b;border:1px solid #334155;border-radius:14px;padding:20px 24px">
+    <h2 style="font-size:15px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Frequently Asked Questions</h2>
+    <div style="border-bottom:1px solid #334155;padding:14px 0"><div style="font-size:14px;font-weight:600;color:#f1f5f9;margin-bottom:6px">Is the Compound Interest Calculator free?</div><div style="font-size:13px;color:#94a3b8;line-height:1.5">Yes — completely free, no sign-up or download needed. Just enter your numbers and get instant results.</div></div>
+    <div style="border-bottom:1px solid #334155;padding:14px 0"><div style="font-size:14px;font-weight:600;color:#f1f5f9;margin-bottom:6px">How accurate is the Compound Interest Calculator?</div><div style="font-size:13px;color:#94a3b8;line-height:1.5">Results are based on standard financial formulas and are accurate for planning purposes. For personalised financial advice, consult a qualified professional.</div></div>
+    <div style="border-bottom:1px solid #334155;padding:14px 0"><div style="font-size:14px;font-weight:600;color:#f1f5f9;margin-bottom:6px">Can I use the Compound Interest Calculator on my phone?</div><div style="font-size:13px;color:#94a3b8;line-height:1.5">Yes — it works on any device including desktop, tablet and mobile.</div></div>
+    <div style="padding:14px 0"><div style="font-size:14px;font-weight:600;color:#f1f5f9;margin-bottom:6px">Do I need to create an account?</div><div style="font-size:13px;color:#94a3b8;line-height:1.5">No account needed. The Compound Interest Calculator works instantly in your browser.</div></div>
   </div>
 </div>
 
-<div style="max-width:860px;margin-left:auto;margin-right:auto;margin-top:8px;margin-bottom:16px;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+<div style="max-width:860px;margin:8px auto 24px;padding:0 16px">
   <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:20px 24px">
     <h2 style="font-size:15px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px">Embed This Tool</h2>
-    <p style="font-size:13px;color:#64748b;margin-bottom:12px">Add this  to your website or blog for free. Just copy and paste the code below:</p>
-    <div style="background:#0f172a;border:1px solid #334155;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#7dd3fc;word-break:break-all;margin-bottom:10px;cursor:pointer" id="embed-code-">&lt;iframe src="" width="100%" height="600" frameborder="0" style="border-radius:12px" title=" by Tabutility"&gt;&lt;/iframe&gt;</div>
-    <button onclick="var t=document.getElementById('embed-code-');navigator.clipboard.writeText(t.textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Embed Code',2000)})" style="background:#38bdf8;color:#0f172a;border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer">Copy Embed Code</button>
+    <p style="font-size:13px;color:#64748b;margin-bottom:12px">Add this Compound Interest Calculator to your website or blog for free:</p>
+    <div style="background:#0f172a;border:1px solid #334155;border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:#7dd3fc;word-break:break-all;margin-bottom:10px" id="embed-code">&lt;iframe src="https://compound-interest-calculator.tabutility.com/" width="100%" height="600" frameborder="0" style="border-radius:12px" title="Compound Interest Calculator by Tabutility"&gt;&lt;/iframe&gt;</div>
+    <button onclick="navigator.clipboard.writeText(document.getElementById('embed-code').textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Embed Code',2000)})" style="background:#38bdf8;color:#0f172a;border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer">Copy Embed Code</button>
     <span style="font-size:11px;color:#475569;margin-left:12px">Free to use — attribution appreciated but not required</span>
   </div>
 </div>
+
+<script>
+let currency = 'gbp';
+function setCurrency(cur) {
+  currency = cur;
+  document.querySelectorAll('.currency-btn').forEach(b => b.classList.toggle('active', b.dataset.cur === cur));
+  const sym = cur === 'gbp' ? '£' : '$';
+  document.getElementById('prefix-sym').textContent = sym;
+  document.getElementById('prefix-sym2').textContent = sym;
+  document.getElementById('label-principal').textContent = 'Initial Deposit (' + sym + ')';
+  document.getElementById('label-contrib').textContent = 'Monthly Contribution (' + sym + ')';
+}
+
+function fmt(n) {
+  const sym = currency === 'gbp' ? '£' : '$';
+  return sym + Math.round(n).toLocaleString();
+}
+
+function calculate() {
+  const p = parseFloat(document.getElementById('principal').value) || 0;
+  const r = parseFloat(document.getElementById('rate').value) || 0;
+  const y = parseFloat(document.getElementById('years').value) || 0;
+  const n = parseFloat(document.getElementById('compoundFreq').value) || 12;
+  const mc = parseFloat(document.getElementById('monthlyContrib').value) || 0;
+
+  const periodicRate = r / 100 / n;
+  const periods = y * n;
+  const cpp = mc * 12 / n;
+  const fvLump = p * Math.pow(1 + periodicRate, periods);
+  const fvContribs = periodicRate > 0 ? cpp * (Math.pow(1 + periodicRate, periods) - 1) / periodicRate : cpp * periods;
+  const finalBalance = fvLump + fvContribs;
+  const totalContributions = p + mc * 12 * y;
+  const totalInterest = finalBalance - totalContributions;
+
+  // Summary cards
+  const cards = [
+    { label: 'Final Balance', val: fmt(finalBalance), color: '#38bdf8', bg: 'rgba(56,189,248,0.1)', border: '#38bdf8' },
+    { label: 'Total Deposited', val: fmt(totalContributions), color: '#60a5fa', bg: 'rgba(96,165,250,0.1)', border: '#60a5fa' },
+    { label: 'Interest Earned', val: fmt(totalInterest), color: '#34d399', bg: 'rgba(52,211,153,0.1)', border: '#34d399' },
+    { label: 'Interest % of Deposits', val: (totalContributions > 0 ? (totalInterest / totalContributions * 100).toFixed(1) : 0) + '%', color: '#fbbf24', bg: 'rgba(251,191,36,0.1)', border: '#fbbf24' },
+  ];
+  document.getElementById('summary-cards').innerHTML = cards.map(c =>
+    `<div class="result-card" style="background:${c.bg};border-color:${c.border}33">
+      <div class="val" style="color:${c.color}">${c.val}</div>
+      <div class="lbl">${c.label}</div>
+    </div>`
+  ).join('');
+
+  // Bar chart
+  const depositPct = Math.min(100, totalContributions / finalBalance * 100);
+  document.getElementById('bar').innerHTML =
+    `<div style="width:${depositPct}%;background:#60a5fa"></div><div style="flex:1;background:#34d399"></div>`;
+  document.getElementById('bar-legend').innerHTML =
+    `<div><span class="dot" style="background:#60a5fa"></span>Deposited: ${fmt(totalContributions)}</div>
+     <div><span class="dot" style="background:#34d399"></span>Interest: ${fmt(totalInterest)}</div>`;
+
+  // Year table
+  let rows = '';
+  for (let yr = 1; yr <= Math.min(y, 30); yr++) {
+    const perds = yr * n;
+    const fvL = p * Math.pow(1 + periodicRate, perds);
+    const fvC = periodicRate > 0 ? cpp * (Math.pow(1 + periodicRate, perds) - 1) / periodicRate : cpp * perds;
+    const bal = fvL + fvC;
+    const contrib = p + mc * 12 * yr;
+    rows += `<tr>
+      <td style="font-weight:600;color:#f1f5f9">${yr}</td>
+      <td style="color:#60a5fa">${fmt(contrib)}</td>
+      <td style="color:#34d399">${fmt(bal - contrib)}</td>
+      <td style="font-weight:700;color:#38bdf8">${fmt(bal)}</td>
+    </tr>`;
+  }
+  document.getElementById('table-body').innerHTML = rows;
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
 </body>
 </html>
