@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://compound-interest-calculator.tabutility.com/sitemap.xml
