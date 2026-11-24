@@ -81,6 +81,7 @@
 nav .brand{color:#fff}
 nav a:hover{color:#818cf8}
 input:focus,select:focus,textarea:focus{border-color:#818cf8!important}
+input[type="number"],select,button{min-height:44px;box-sizing:border-box}
 </style>
 
 </head>
@@ -229,13 +230,20 @@ function calculate() {
   const y = parseFloat(document.getElementById('years').value) || 0;
   const n = parseFloat(document.getElementById('compoundFreq').value) || 12;
   const mc = parseFloat(document.getElementById('monthlyContrib').value) || 0;
+  if (![p, r, y, n, mc].every(Number.isFinite) || p < 0 || mc < 0 || r < 0 || y <= 0 || y > 100 || n <= 0) {
+    alert('Enter non-negative deposits and interest, and a term between 0 and 100 years.');
+    return;
+  }
 
-  const periodicRate = r / 100 / n;
-  const periods = y * n;
-  const cpp = mc * 12 / n;
+  // Convert the selected nominal compounding frequency to equivalent monthly
+  // growth; contributions are actually made at each month end.
+  const periodicRate = Math.pow(1 + r / 100 / n, n / 12) - 1;
+  const periods = y * 12;
+  const cpp = mc;
   const fvLump = p * Math.pow(1 + periodicRate, periods);
   const fvContribs = periodicRate > 0 ? cpp * (Math.pow(1 + periodicRate, periods) - 1) / periodicRate : cpp * periods;
   const finalBalance = fvLump + fvContribs;
+  if (!Number.isFinite(finalBalance)) { alert('These inputs produce an amount too large to calculate.'); return; }
   const totalContributions = p + mc * 12 * y;
   const totalInterest = finalBalance - totalContributions;
 
@@ -254,7 +262,7 @@ function calculate() {
   ).join('');
 
   // Bar chart
-  const depositPct = Math.min(100, totalContributions / finalBalance * 100);
+  const depositPct = finalBalance > 0 ? Math.min(100, totalContributions / finalBalance * 100) : 0;
   document.getElementById('bar').innerHTML =
     `<div style="width:${depositPct}%;background:#60a5fa"></div><div style="flex:1;background:#34d399"></div>`;
   document.getElementById('bar-legend').innerHTML =
@@ -264,7 +272,7 @@ function calculate() {
   // Year table
   let rows = '';
   for (let yr = 1; yr <= Math.min(y, 30); yr++) {
-    const perds = yr * n;
+    const perds = yr * 12;
     const fvL = p * Math.pow(1 + periodicRate, perds);
     const fvC = periodicRate > 0 ? cpp * (Math.pow(1 + periodicRate, perds) - 1) / periodicRate : cpp * perds;
     const bal = fvL + fvC;
@@ -305,7 +313,7 @@ function calculate() {
 </script>
 <footer style="background:#1a1a2e;margin-top:48px;padding:28px 24px;text-align:center;font-family:'Segoe UI',system-ui,Arial,sans-serif;font-size:13px;color:#94a3b8;line-height:1.8">
 <div style="font-weight:700;color:#fff;font-size:15px">⚡ Tabutility</div>
-<div>Free, private, browser-based tools. No sign-up, no tracking.</div>
+<div>Free, browser-based tools. No sign-up. Advertising and analytics are explained in our privacy policy.</div>
 <div style="margin-top:6px"><a href="https://tabutility.com" style="color:#818cf8;font-weight:600;text-decoration:none">All Tools</a> · <a href="https://tabutility.com/blog/" style="color:#94a3b8;text-decoration:none">Blog</a> · <a href="https://tabutility.com/about/" style="color:#94a3b8;text-decoration:none">About</a> · <a href="https://tabutility.com/privacy-policy/" style="color:#94a3b8;text-decoration:none">Privacy</a> · <a href="https://tabutility.com/contact/" style="color:#94a3b8;text-decoration:none">Contact</a></div>
 <div style="margin-top:6px;color:#64748b">© 2026 Tabutility</div>
 
@@ -321,9 +329,9 @@ function calculate() {
         <p style="color:#94a3b8;margin:0 0 12px;">$5,000 starting balance, $200/month contributions, 7% annual return (monthly compounding), 30 years:</p>
         <ul style="list-style:none;padding:0;margin:0;color:#cbd5e1;">
           <li style="padding:6px 0;border-bottom:1px solid #1e293b;">Total contributions: <strong style="color:#f1f5f9;">$77,000</strong></li>
-          <li style="padding:6px 0;border-bottom:1px solid #1e293b;">Interest earned: <strong style="color:#34d399;">$166,284</strong></li>
-          <li style="padding:6px 0;border-bottom:1px solid #1e293b;">Final balance: <strong style="color:#34d399;">$243,284</strong></li>
-          <li style="padding:6px 0;">Interest is <strong style="color:#f1f5f9;">68%</strong> of the final pot — more than contributions</li>
+          <li style="padding:6px 0;border-bottom:1px solid #1e293b;">Interest earned: <strong style="color:#34d399;">$207,577</strong></li>
+          <li style="padding:6px 0;border-bottom:1px solid #1e293b;">Final balance: <strong style="color:#34d399;">$284,577</strong></li>
+          <li style="padding:6px 0;">Interest is about <strong style="color:#f1f5f9;">73%</strong> of the final pot — more than contributions</li>
         </ul>
       </div>
 
@@ -367,7 +375,7 @@ function calculate() {
 <aside id="related-guide" style="max-width:720px;margin:20px auto;padding:16px 20px;background:#172554;border:1px solid #3730a3;border-radius:12px;color:#c7d2fe;font:14px/1.6 system-ui,sans-serif"><strong>Related Tabutility guide:</strong> <a href="https://tabutility.com/blog/how-compound-interest-works/" style="color:#a5b4fc;font-weight:700">Read how compound interest works →</a></aside>
 <section id="editorial-methodology" style="max-width:720px;margin:28px auto;padding:20px;background:#111827;border:1px solid #334155;border-radius:12px;color:#cbd5e1;line-height:1.65">
   <h2 style="margin:0 0 10px;color:#f8fafc;font-size:20px">Calculation methodology</h2>
-  <p style="margin:0 0 10px">Results compound the entered principal and contributions at the selected frequency and assumed rate. They do not predict investment returns and exclude taxes, fees, inflation and market losses unless entered.</p>
+  <p style="margin:0 0 10px">The selected nominal compounding frequency is converted to equivalent monthly growth. Contributions are added at month end. Results assume a constant rate; they do not predict returns and exclude taxes, fees, inflation and market losses.</p>
   <p style="margin:0;font-size:14px"><strong>Primary source:</strong> <a href="https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator" target="_blank" rel="noopener" style="color:#a5b4fc">Investor.gov compound-interest reference</a></p>
   <p style="margin:8px 0 0;font-size:13px;color:#94a3b8">Source and methodology checked 8 September 2026.</p><p style="margin:8px 0 0;font-size:13px"><a href="https://tabutility.com/about/" style="color:#a5b4fc">About</a> · <a href="https://tabutility.com/privacy-policy/" style="color:#a5b4fc">Privacy</a> · <a href="https://tabutility.com/contact/" style="color:#a5b4fc">Report a correction</a> · <a href="https://tabutility.com/terms/" style="color:#a5b4fc">Terms</a></p>
 </section>
